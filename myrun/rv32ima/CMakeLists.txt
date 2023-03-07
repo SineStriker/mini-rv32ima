@@ -7,7 +7,7 @@ get_filename_component(_include_dir ${MYRUN_HEADER_FILE} DIRECTORY)
 target_include_directories(${PROJECT_NAME} PRIVATE ${_include_dir})
 
 # Generate temporary header to prevent static error
-file(GENERATE OUTPUT ${MYRUN_HEADER_FILE} CONTENT "const char binary_data[] = \"1\";")
+file(GENERATE OUTPUT ${MYRUN_HEADER_FILE} CONTENT "const unsigned char binary_data[] = \"1\";")
 
 add_custom_target(generate_header DEPENDS bintoh++)
 

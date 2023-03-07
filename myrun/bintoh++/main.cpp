@@ -42,11 +42,11 @@ int main(int argc, char *argv[]) {
     output << "#ifndef BINARY_DATA_H" << endl;
     output << "#define BINARY_DATA_H" << endl;
     output << endl;
-    output << "const char binary_data[] = {";
+    output << "const unsigned char binary_data[] = {";
 
     // 写入每个字节的十六进制表示
     for (int i = 0; i < size; i++) {
-        output << "0x" << setw(2) << setfill('0') << hex << static_cast<int>(buffer[i]) << ",";
+        output << "0x" << setw(2) << setfill('0') << hex << static_cast<int>((buffer[i] + 256) % 256) << ",";
     }
 
     output << "};" << endl;
